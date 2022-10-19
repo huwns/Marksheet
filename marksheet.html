@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Marksheet</title>
+</head>
+<body>
+    <form>
+        <table border="1">
+            <tr>
+                <th colspan="5">Part1</th>
+                <th colspan="15">Part2</th>
+                <th colspan="15">Part3</th>
+                <th colspan="15">Part4</th>
+            </tr>
+            <tr>
+                <script type="text/javascript">
+                    for (var i=0;i<10;i++) {
+                        document.write('<td rowspan="2">No.</td><td colspan="4">ANSWER</td>')
+                    }
+                </script>
+            </tr>
+            <tr>
+                <td>A</td><td>B</td><td>C</td><td>D</td>
+                <td>A</td><td>B</td><td>C</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>A</td><td>B</td><td>C</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>A</td><td>B</td><td>C</td><td>D</td>
+                <td>A</td><td>B</td><td>C</td><td>D</td>
+                <td>A</td><td>B</td><td>C</td><td>D</td>
+                <td>A</td><td>B</td><td>C</td><td>D</td>
+                <td>A</td><td>B</td><td>C</td><td>D</td>
+                <td>A</td><td>B</td><td>C</td><td>D</td>
+                <td>A</td><td>B</td><td>C</td><td>D</td>
+            </tr>
+            <script type="text/javascript">
+                for (var i=1;i<=10;i++) {
+                    document.write("<tr>")
+                    for (var j=0;j<10;j++) {
+                        var qn=i+(j*10)
+                        document.write("<td>"+qn+"</td>")
+                        document.write('<td><input type="radio" name="q'+qn+'" value="A">A</td>')
+                        document.write('<td><input type="radio" name="q'+qn+'" value="B">B</td>')
+                        document.write('<td><input type="radio" name="q'+qn+'" value="C">C</td>')
+                        if (qn>=7 && qn<=31) {
+                            document.write('<td></td>')
+                        } else {
+                            document.write('<td><input type="radio" name="q'+qn+'" value="D">D</td>')
+                        }
+                    }
+                    document.write("</tr>")
+                }
+            </script>
+        </table>
+
+        <br>
+
+        <table border="1">
+            <tr>
+                <th colspan="15">Part5</th>
+                <th colspan="10">Part6</th>
+                <th colspan="25">Part7</th>
+            </tr>
+            <tr>
+                <script type="text/javascript">
+                    for (var i=0;i<10;i++) {
+                        document.write('<td rowspan="2">No.</td><td colspan="4">ANSWER</td>')
+                    }
+                </script>
+            </tr>
+            <tr>
+                <td>A</td><td>B</td><td>C</td><td>D</td>
+                <td>A</td><td>B</td><td>C</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>A</td><td>B</td><td>C</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>A</td><td>B</td><td>C</td><td>D</td>
+                <td>A</td><td>B</td><td>C</td><td>D</td>
+                <td>A</td><td>B</td><td>C</td><td>D</td>
+                <td>A</td><td>B</td><td>C</td><td>D</td>
+                <td>A</td><td>B</td><td>C</td><td>D</td>
+                <td>A</td><td>B</td><td>C</td><td>D</td>
+                <td>A</td><td>B</td><td>C</td><td>D</td>
+            </tr>
+            <script type="text/javascript">
+                for (var i=101;i<=110;i++) {
+                    document.write("<tr>")
+                    for (var j=0;j<10;j++) {
+                        var qn=i+(j*10)
+                        document.write("<td>"+qn+"</td>")
+                        document.write('<td><input type="radio" name="q'+qn+'" value="A">A</td>')
+                        document.write('<td><input type="radio" name="q'+qn+'" value="B">B</td>')
+                        document.write('<td><input type="radio" name="q'+qn+'" value="C">C</td>')
+                        if (qn>=7 && qn<=31) {
+                            document.write('<td></td>')
+                        } else {
+                            document.write('<td><input type="radio" name="q'+qn+'" value="D">D</td>')
+                        }
+                    }
+                    document.write("</tr>")
+                }
+            </script>
+        </table>
+    </form>
+
+    <script type="text/javascript">
+        function OnButtonClick() {
+            const formElements = document.forms[0];
+            var answers = [];
+            var result_text = "";
+            for (i=1;i<=200;i++) {
+                    var answer = formElements.elements["q"+i].value
+                    answers.push(answer)
+                    result_text += i+":"+answer+", "
+            }
+            document.getElementById("results").value=result_text;
+        }
+    </script>
+    <input type="button" value="Submit" onclick="OnButtonClick();">
+
+    <br>
+
+    <textarea id="results" cols="250" rows="7" readonly>When you press the Submit button, the values you selected will be displayed here as a summary text.</textarea>
+</body>
+</html>
